@@ -5,4 +5,11 @@
 //  Created by Ernesto Cisnero on 11/20/25.
 //
 
-import Foundation
+import SwiftUI
+
+struct OnboardingSlide: Identifiable {
+    let id = UUID()
+    let image: String  
+    let title: String
+    let description: String
+}

@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct LaunchTrackApp: App {
+    @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if hasSeenOnboarding {
+                LaunchListView()
+            } else {
+                OnboardingView()
+            }
         }
     }
 }
+
