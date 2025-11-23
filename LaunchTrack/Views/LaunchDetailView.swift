@@ -21,7 +21,6 @@ struct LaunchDetailView: View {
                     Color.gray.opacity(0.3)
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                
                 Text(launch.name)
                     .font(.title)
                     .bold()
