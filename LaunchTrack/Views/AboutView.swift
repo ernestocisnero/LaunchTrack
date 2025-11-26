@@ -26,7 +26,7 @@ struct AboutView: View {
                 .foregroundColor(.secondary)
                 .padding(.horizontal, 20)
             
-            Link("Privacy Policy", destination: URL(string: "https://ernestocisnero.vercel.app")!)
+            Link("Privacy Policy", destination: URL(string: "https://ernestocisnero.vercel.app/privacy/launchTrackPolicy")!)
                 .font(.body)
                 .foregroundColor(Color(red: 96 / 255.0, green: 89 / 255.0, blue: 227 / 255.0))
                 .padding(.top, 20)
