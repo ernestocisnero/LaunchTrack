@@ -58,6 +58,14 @@ struct LaunchListView: View {
                 }
             }
             .navigationTitle("Upcoming Launches")
+            .toolbar{
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink(destination: AboutView()){
+                        Image(systemName: "info")
+                    }
+                    
+                }
+            }
             .task {
                 await vm.loadLaunches()
             }
@@ -65,6 +73,7 @@ struct LaunchListView: View {
                 now = Date()
             }
         }
+        
     }
     
     func formatDate(_ iso: String) -> String {
