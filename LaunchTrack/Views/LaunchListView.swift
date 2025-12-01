@@ -74,7 +74,12 @@ struct LaunchListView: View {
             }
         }
         
+        BannerAd(adUnitID: "ca-app-pub-4315973313313037/4851585583" )
+            .frame(height: 50)
+            .background(Color.clear)
+        
     }
+    
     
     func formatDate(_ iso: String) -> String {
         let formatter = ISO8601DateFormatter()
