@@ -20,6 +20,13 @@ struct BannerAd: UIViewRepresentable {
         view.rootViewController = UIApplication.shared.connectedScenes
             .compactMap { ($0 as? UIWindowScene)?.keyWindow?.rootViewController }
             .first
+        
+        // Load non-personalized ad
+                let request = Request()
+                let extras = Extras()
+                extras.additionalParameters = ["npa": "1"]  // Non-personalized ads
+                request.register(extras)
+        
         view.load(Request())
         return view
     }
