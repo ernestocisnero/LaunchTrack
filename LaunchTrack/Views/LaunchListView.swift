@@ -25,15 +25,25 @@ struct LaunchListView: View {
                             LaunchDetailView(launch: launch)
                         } label: {
                             HStack(spacing: 15) {
+                                //Launch Image
                                 AsyncImage(url: URL(string: launch.image ?? "")) { img in
                                     img.resizable()
                                         .scaledToFill()
                                 } placeholder: {
-                                    Color.gray.opacity(0.3)
+                                    ZStack {
+                                        Color(white: 0.15)
+                                        ProgressView()
+                                             .tint(.white.opacity(0.5))
+                                    }
                                 }
-                                .frame(width: 80, height: 80)
+                                .frame(width: 70, height: 70)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 14)
+                                         .stroke(Color.white.opacity(0.1), lineWidth: 1)
+                                )
                                 
+                                //Launch Info
                                 VStack(alignment: .leading, spacing: 4) {
                                     let timeremaining = timeRemainingString(to: launch.net, now: now)
                                     
@@ -93,4 +103,5 @@ struct LaunchListView: View {
 #Preview{
     LaunchListView()
 }
+
 
