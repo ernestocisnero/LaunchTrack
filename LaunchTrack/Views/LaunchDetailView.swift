@@ -45,6 +45,8 @@ struct LaunchDetailView: View {
                 
                 Divider()
                 
+                LiveStreamButton()
+                
                 Text("\(Image(systemName: "calendar")) \(formatDate(launch.net))")
                     .font(.subheadline)
                     .bold()

@@ -11,7 +11,7 @@ struct AboutView: View {
     var body: some View {
         VStack{
             
-            Image("about")
+            Image("LaunchTrackNewLogo")
                 .resizable()
                 .scaledToFit()
                 .frame(maxHeight: 150)
