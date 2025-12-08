@@ -26,7 +26,7 @@ struct LaunchListView: View {
                             } label: {
                                 HStack(spacing: 15) {
                                     //Launch Image
-                                    AsyncImage(url: URL(string: launch.image ?? "")) { img in
+                                    AsyncImage(url: URL(string: launch.image?.image_url ?? "")) { img in
                                         img.resizable()
                                             .scaledToFill()
                                     } placeholder: {

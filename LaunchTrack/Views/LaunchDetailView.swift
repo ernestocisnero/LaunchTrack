@@ -17,7 +17,7 @@ struct LaunchDetailView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 
-                AsyncImage(url: URL(string: launch.image ?? "")) { img in
+                AsyncImage(url: URL(string: launch.image?.image_url ?? "")) { img in
                     img.resizable()
                         .scaledToFit()
                 } placeholder: {
@@ -31,7 +31,6 @@ struct LaunchDetailView: View {
                         .bold()
                     
                     Spacer()
-                    
                     // Notification Button
                     Button {
                         requestNotificationPermission()
@@ -42,10 +41,16 @@ struct LaunchDetailView: View {
                     }
                     
                 }
-                
+            
                 Divider()
-                
-                LiveStreamButton()
+                if let urls = launch.vid_urls, !urls.isEmpty{
+                    LiveStreamButton(urls: urls.first!.url ?? "")
+                } else {
+                    Text("No video available")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+               
                 
                 Text("\(Image(systemName: "calendar")) \(formatDate(launch.net))")
                     .font(.subheadline)

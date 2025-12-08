@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct LiveStreamButton: View {
+    let urls: String
+    
     @State private var showPulse: Bool = false
+    
+    
     var body: some View {
         
         NavigationStack{
@@ -31,7 +35,6 @@ struct LiveStreamButton: View {
                 .padding(.vertical, 6)
                 .foregroundStyle(Color.white)
                 .background( RoundedRectangle(cornerRadius: 8).fill(Color.red.opacity(0.8)))
-                
             }
         }
         
@@ -39,8 +42,7 @@ struct LiveStreamButton: View {
 }
 
 #Preview {
-    LiveStreamButton()
-}
+    LiveStreamButton( urls:"https://www.youtube.com/Preview")}
 
    
 
