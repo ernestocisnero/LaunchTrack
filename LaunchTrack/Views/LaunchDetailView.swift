@@ -44,7 +44,7 @@ struct LaunchDetailView: View {
             
                 Divider()
                 if let urls = launch.vid_urls, !urls.isEmpty{
-                    LiveStreamButton(urls: urls.first!.url ?? "")
+                    LiveStreamButton(urlData: urls.first!, padName: launch.pad?.name ?? "", padLatitude: launch.pad?.latitude ?? 0.0, padLongitude: launch.pad?.longitude ?? 0.0)
                 } else {
                     Text("No video available")
                         .font(.caption)

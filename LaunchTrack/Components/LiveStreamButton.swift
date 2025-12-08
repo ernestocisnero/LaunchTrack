@@ -8,25 +8,20 @@
 import SwiftUI
 
 struct LiveStreamButton: View {
-    let urls: String
+    let urlData: VidURL
+    let padName: String?
+    let padLatitude: Double
+    let padLongitude: Double
     
     @State private var showPulse: Bool = false
-    
+
     
     var body: some View {
         
         NavigationStack{
-            NavigationLink(destination: LiveStreamView()) {
+            NavigationLink(destination: LiveStreamView(name:padName, title: urlData.title, streamURL: urlData.url ?? "", padLatitude: padLatitude, padLongitude: padLongitude )) {
                 HStack{
-                    Circle()
-                        .fill(Color.white)
-                        .frame(width: 10, height: 10)
-                        .scaleEffect(showPulse ? 1.2 : 0.8)
-                        .animation(
-                            .easeInOut(duration: 0.8).repeatForever(autoreverses: true),
-                            value: showPulse
-                        ).onAppear{ showPulse = true }
-                    
+                   PulsingDot()
                     Text("Watch Launch")
                     Image(systemName: "airplayvideo")
                 }
@@ -36,13 +31,23 @@ struct LiveStreamButton: View {
                 .foregroundStyle(Color.white)
                 .background( RoundedRectangle(cornerRadius: 8).fill(Color.red.opacity(0.8)))
             }
+
         }
         
     }
 }
 
 #Preview {
-    LiveStreamButton( urls:"https://www.youtube.com/Preview")}
+    LiveStreamButton(
+        urlData: VidURL(
+        title: "Starlink Live",
+        url: "https://www.youtube.com/watch?v=H5ABuDe5jag"
+        ),
+        padName: "",
+        padLatitude: 0.0,
+        padLongitude: 0.0
+    )
+}
 
    
 

@@ -86,8 +86,9 @@ struct LaunchListView: View {
                 }
             }
 
-        
-        BannerAd(adUnitID: "ca-app-pub-4315973313313037/4851585583" )
+        //Prod UnitID: ca-app-pub-4315973313313037/4851585583
+        //Dev UnitID: ca-app-pub-3940256099942544/2934735716
+        BannerAd(adUnitID: "ca-app-pub-3940256099942544/2934735716" )
             .frame(height: 50)
             .background(Color.clear)
         

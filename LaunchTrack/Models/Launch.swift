@@ -29,15 +29,13 @@ struct Mission: Codable {
 }
 
 struct Pad: Codable {
-    let name: String?
-    let location: Location?
-    //let latitude: String?
-    //let longitude: String?
+   let name: String?
+   let location: Location?
+   let latitude: Double?
+   let longitude: Double?
 }
 
 struct VidURL: Codable {
-    let source: String?
-    let publisher: String?
     let title: String?
     let url: String?
 }
@@ -60,10 +58,8 @@ extension Launch {
         net: "2025-12-01T14:30:00Z",
         image: LaunchImage(image_url: "https://www.nasa.gov/sites/default/files/thumbnails/image/nasa-logo-web-rgb.png"),
         mission: Mission(name: "Starlink", description: "Deployment of a batch of Starlink satellites to low Earth orbit."),
-        pad: Pad(name: "LC-39A", location: Location(name: "Kennedy Space Center, FL")),
+        pad: Pad(name: "LC-39A", location: Location(name: "Kennedy Space Center, FL"), latitude: 38.8830649, longitude: -77.0162786),
         vid_urls: [VidURL(
-            source: "youtube.com",
-            publisher: "Space Affairs",
             title: "Starlink Live",
             url: "https://www.youtube.com/watch?v=H5ABuDe5jag"
         )]
