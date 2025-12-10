@@ -17,11 +17,6 @@ struct TopMenu: View {
                                 Text("Previous Launches")
                                 Image(systemName: "airplayvideo")
                             }
-                            .font(.subheadline)
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 6)
-                            .foregroundStyle(Color.white)
-                            .background( RoundedRectangle(cornerRadius: 8).fill(Color.red.opacity(0.8)))
                         }
                                
                         NavigationLink(destination: Astronauts()) {
@@ -29,11 +24,6 @@ struct TopMenu: View {
                                 Text("Astronauts")
                                 Image(systemName: "airplayvideo")
                             }
-                            .font(.subheadline)
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 6)
-                            .foregroundStyle(Color.white)
-                            .background( RoundedRectangle(cornerRadius: 8).fill(Color.red.opacity(0.8)))
                         }
                         
                         NavigationLink(destination: AboutView()) {
@@ -41,11 +31,6 @@ struct TopMenu: View {
                                 Text("About")
                                 Image(systemName: "info.circle")
                             }
-                            .font(.subheadline)
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 6)
-                            .foregroundStyle(Color.white)
-                            .background( RoundedRectangle(cornerRadius: 8).fill(Color.red.opacity(0.8)))
                         }
                                             
                     } label: {
@@ -54,8 +39,8 @@ struct TopMenu: View {
                             .frame(width: 30, height: 30)
                             .overlay {
                                 Image(systemName: "ellipsis")
-                                    .font(.system(size: 13.0, weight: .semibold))
-                                    .foregroundColor(.pink)
+                                    .font(.system(size: 13.0, weight: .bold))
+                                    .foregroundColor(.black)
                                     .padding()
                             }
                     }

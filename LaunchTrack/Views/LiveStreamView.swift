@@ -24,7 +24,7 @@ struct LiveStreamView: View {
             VStack(alignment: .leading, spacing: 20) {
                 // MARK: - Live Badge
                 HStack {
-                    LiveIndicator()
+                    
                     Spacer()
                 }
                 .padding(.horizontal)
@@ -78,27 +78,8 @@ struct LiveStreamView: View {
                 )
             }
         }
-        .navigationTitle("Live Stream")
+        .navigationTitle("Watch Launch")
         .navigationBarTitleDisplayMode(.inline)
-    }
-}
-
-//MARK: - LIVE Badge
-
-struct LiveIndicator: View {
-    var body: some View {
-        HStack(spacing: 6) {
-            PulsingDot()
-            Text("WATCH LAUNCH")
-                .font(.caption)
-                .bold()
-                .foregroundColor(.white)
-        }
-        .padding(.horizontal, 10)
-        .padding(.vertical, 6)
-        .background(Color.red.opacity(0.8))
-        .cornerRadius(8)
-        .shadow(radius: 3)
     }
 }
 
