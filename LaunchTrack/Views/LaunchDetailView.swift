@@ -110,7 +110,6 @@ struct LaunchDetailView: View {
     // MARK: - Notification Functions
     
     func requestNotificationPermission() {
-        print("Bell tapped!") // Debug
             
             NotificationManager.shared.requestPermission { granted in
                 print("Permission granted: \(granted)") // Debug

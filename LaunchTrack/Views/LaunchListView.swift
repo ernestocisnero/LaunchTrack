@@ -18,7 +18,7 @@ struct LaunchListView: View {
             NavigationStack {
                 Group {
                     if vm.isLoading {
-                        ProgressView("Loading launches…")
+                        ProgressView("Loading launches… Hold tight we're almost taking off! 🚀 ")
                     } else {
                         List(vm.launches) { launch in
                             NavigationLink {
@@ -72,11 +72,9 @@ struct LaunchListView: View {
                 .navigationTitle("Upcoming Launches")
                 .toolbar{
                     ToolbarItem(placement: .topBarTrailing) {
-                        NavigationLink(destination: AboutView()){
-                            Image(systemName: "info")
-                        }
-                        
+                        TopMenu()
                     }
+                    
                 }
                 .task {
                     await vm.loadLaunches()
