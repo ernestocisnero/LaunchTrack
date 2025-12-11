@@ -10,7 +10,7 @@
 import Foundation
 
 class PreviousLaunchesService {
-    private let url = URL(string: "https://lldev.thespacedevs.com/2.3.0/launches/previous/?mode=detailed")!
+    private let url = URL(string: "https://ll.thespacedevs.com/2.3.0/launches/previous/?mode=detailed")!
 
     func fetchPreviousLaunches() async throws -> [Launch] {
         let (data, _) = try await URLSession.shared.data(from: url)

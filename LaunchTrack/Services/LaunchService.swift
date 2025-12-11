@@ -8,7 +8,7 @@
 import Foundation
 
 class LaunchService {
-    private let url = URL(string: "https://lldev.thespacedevs.com/2.3.0/launches/upcoming/?mode=detailed")!
+    private let url = URL(string: "https://ll.thespacedevs.com/2.3.0/launches/upcoming/?mode=detailed")!
 
     func fetchUpcomingLaunches() async throws -> [Launch] {
         let (data, _) = try await URLSession.shared.data(from: url)
