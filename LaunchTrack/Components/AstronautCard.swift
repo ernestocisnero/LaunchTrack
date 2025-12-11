@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct AstronautCard: View {
+    @State private var showDetails: Bool = false
     let astronaut: Astronaut
+    
 
     var body: some View {
         VStack{
             HStack(alignment: .top, spacing:16){
-                
                 HStack{
                     AsyncImage(url: URL(string: astronaut.image.image_url ?? "")) { img in
                         if let image = img.image {
@@ -36,12 +37,15 @@ struct AstronautCard: View {
                         .foregroundColor(.primary)
                         .multilineTextAlignment(.center)
                     
-                    Text(astronaut.agency.name ?? "Unknown Agency")
-                        .font(.headline)
-                        .foregroundColor(.secondary)
+                    HStack {
+                        Image(systemName: "flag")
+                        Text(astronaut.nationality.first?.name ?? "Unknown").font(.headline).foregroundStyle(.secondary)
+                    }
+                    Text(astronaut.agency.name ?? "Unknown Agency").font(.footnote).foregroundStyle(.secondary)
+                    Text(astronaut.agency.abbrev).font(.headline).foregroundStyle(.secondary)
                     Spacer()
                     HStack {
-                        Text("\(Image(systemName: "star.fill")) Flights: \(astronaut.flights_count)")
+                        Text("\(Image(systemName: "star")) Flights: \(astronaut.flights_count)")
                         Spacer()
                         
                         Text(astronaut.status.name).foregroundStyle(
@@ -51,17 +55,16 @@ struct AstronautCard: View {
                     
                 }.padding(.vertical,12)
                 Spacer()
-                
-                
-                
-            }
+            }.onTapGesture { showDetails = true }
+            
+                .sheet(isPresented: $showDetails){
+                    AstronautDetailSheetView(astronaut: astronaut)
+                        .presentationDetents([.medium]).presentationDragIndicator(.visible)
+                }
 
         }
         .frame(height: 150)
         .frame(maxWidth: .infinity)
-        .background(.ultraThinMaterial)
-        .cornerRadius(18)
-        .shadow(radius: 4, y: 4)
     }
 }
 

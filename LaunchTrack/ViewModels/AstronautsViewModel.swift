@@ -21,6 +21,7 @@ class AstronautsViewModel: ObservableObject {
         isLoadingAstronauts = true
         do {
             astronauts = try await service.fetchAstronauts()
+            
         } catch {
             print("Error fetching Astronauts Data:", error)
         }

@@ -22,7 +22,7 @@ struct TopMenu: View {
                         NavigationLink(destination: Astronauts()) {
                             HStack{
                                 Text("Astronauts")
-                                Image(systemName: "airplayvideo")
+                                Image(systemName: "person.circle")
                             }
                         }
                         

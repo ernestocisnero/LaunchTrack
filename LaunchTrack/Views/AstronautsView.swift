@@ -8,8 +8,29 @@
 import SwiftUI
 
 struct Astronauts: View {
+    @StateObject private var avm = AstronautsViewModel()
+    
+    
     var body: some View {
-        Text("Astronauts")
+       
+        NavigationStack {
+            
+            Group{
+                if avm.isLoadingAstronauts{
+                    ProgressView("Hold tight we're calling our heroes... 🧑‍🚀")
+                }else{
+                    List(avm.astronauts){ astronaut in
+                        AstronautCard(astronaut: astronaut)
+                    }
+                }
+            }
+            
+            
+            .navigationTitle("Astronauts")
+        }
+        .task {
+            await avm.loadAstronauts()
+        }
     }
 }
 
