@@ -10,6 +10,7 @@ import GoogleMobileAds
 @main
 struct LaunchTrackApp: App {
     @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
+    @Environment(\.scenePhase) private var scenePhase
     
     init(){
         MobileAds.shared.start()
@@ -22,6 +23,11 @@ struct LaunchTrackApp: App {
                 LaunchListView()
             } else {
                 OnboardingView()
+            }
+        }
+        .onChange(of: scenePhase){ oldValue, newValue in
+            if newValue == .active{
+                UNUserNotificationCenter.current().setBadgeCount(0)
             }
         }
     }
